@@ -1,0 +1,19 @@
+﻿🎯 MY E-COMMERCE WEBSITE 🎯
+
+🌐 Main Website: https://gmlkin3-beep.github.io/moneycreate/
+
+📦 Products Page: https://gmlkin3-beep.github.io/moneycreate/products.html
+🛒 Shopping Cart: https://gmlkin3-beep.github.io/moneycreate/cart.html
+💳 Checkout: https://gmlkin3-beep.github.io/moneycreate/checkout.html
+
+📞 Contact: https://gmlkin3-beep.github.io/moneycreate/contact.html
+ℹ️ About: https://gmlkin3-beep.github.io/moneycreate/about.html
+
+🔐 Login: https://gmlkin3-beep.github.io/moneycreate/login.html
+📝 Register: https://gmlkin3-beep.github.io/moneycreate/register.html
+
+🌟 Features:
+- 50+ products with images
+- Shopping cart functionality
+- Responsive design
+- Product search & filters
