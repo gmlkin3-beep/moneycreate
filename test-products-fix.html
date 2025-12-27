@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Products.js</title>
+    <script src="js/products.js"></script>
+</head>
+<body>
+    <h1>Testing products.js</h1>
+    <div id="testOutput"></div>
+    <script>
+        setTimeout(function() {
+            const output = document.getElementById('testOutput');
+            if (typeof products !== 'undefined') {
+                output.innerHTML = 
+                    '<div style="color:green; padding:20px; border:2px solid green;">' +
+                    '✅ SUCCESS!<br>' +
+                    'Loaded ' + products.length + ' products<br>' +
+                    'Functions: loadProducts=' + (typeof loadProducts) + ', initializeProductsPage=' + (typeof initializeProductsPage) +
+                    '</div>';
+                console.log("✅ Test passed! Found", products.length, "products");
+            } else {
+                output.innerHTML = 
+                    '<div style="color:red; padding:20px; border:2px solid red;">' +
+                    '❌ FAILED!<br>' +
+                    'products variable not defined' +
+                    '</div>';
+                console.error("❌ Test failed! products not defined");
+            }
+        }, 100);
+    </script>
+</body>
+</html>
