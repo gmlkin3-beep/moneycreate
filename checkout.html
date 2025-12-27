@@ -374,7 +374,18 @@
         }
         
         function updateCheckoutSummary() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Generate or get unique user ID
+function getUserId() {
+    let userId = localStorage.getItem('user_id');
+    if (!userId) {
+        userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+        localStorage.setItem('user_id', userId);
+    }
+    return userId;
+}
+
+const userId = getUserId();
+const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             const itemsContainer = document.getElementById('checkoutItems');
             const subtotalElement = document.getElementById('checkoutSubtotal');
             const totalElement = document.getElementById('checkoutTotal');
@@ -424,6 +435,9 @@
 <script src='js/mobile-navbar.js'></script>
 </body>
 </html>
+
+
+
 
 
 

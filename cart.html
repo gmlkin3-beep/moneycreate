@@ -412,7 +412,18 @@
                 const response = await fetch(`http://localhost:5000/api/products/${productId}`);
                 const product = await response.json();
                 
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                // Generate or get unique user ID
+function getUserId() {
+    let userId = localStorage.getItem('user_id');
+    if (!userId) {
+        userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+        localStorage.setItem('user_id', userId);
+    }
+    return userId;
+}
+
+const userId = getUserId();
+let cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
                 const existingItem = cart.find(item => item.id === productId);
                 
                 if (existingItem) {
@@ -436,7 +447,7 @@
                     });
                 }
                 
-                localStorage.setItem('cart', JSON.stringify(cart));
+                localStorage.setItem('cart_' + userId, JSON.stringify(cart));
                 updateCartDisplay();
                 showNotification(`${product.name} added to cart!`, 'success');
                 
@@ -448,7 +459,7 @@
         
         // Update cart display
         function updateCartDisplay() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             const cartItemsList = document.getElementById('cartItemsList');
             const emptyCart = document.getElementById('emptyCart');
             const cartItemCount = document.getElementById('cartItemCount');
@@ -511,7 +522,7 @@
         
         // Update order summary
         function updateOrderSummary() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             
             let subtotal = 0;
             cart.forEach(item => {
@@ -541,12 +552,12 @@
         
         // Remove item from cart
         function removeFromCart(index) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             const itemName = cart[index].name;
             
             if (confirm(`Remove ${itemName} from cart?`)) {
                 cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
+                localStorage.setItem('cart_' + userId, JSON.stringify(cart));
                 updateCartDisplay();
                 showNotification(`${itemName} removed from cart`, 'success');
             }
@@ -554,7 +565,7 @@
         
         // Update quantity
         function updateQuantity(index, change) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             
             cart[index].quantity += change;
             
@@ -567,13 +578,13 @@
                 showNotification(`Maximum ${cart[index].maxQuantity} items available`, 'error');
             }
             
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('cart_' + userId, JSON.stringify(cart));
             updateCartDisplay();
         }
         
         // Update quantity from input
         function updateQuantityInput(index, value) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             const newQuantity = parseInt(value) || 1;
             
             if (newQuantity < 1) {
@@ -585,7 +596,7 @@
                 cart[index].quantity = newQuantity;
             }
             
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('cart_' + userId, JSON.stringify(cart));
             updateCartDisplay();
         }
         
@@ -602,7 +613,7 @@
             
             if (validPromos[promoCode]) {
                 const discountPercent = validPromos[promoCode];
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
                 let subtotal = 0;
                 cart.forEach(item => {
                     subtotal += item.price * item.quantity;
@@ -625,14 +636,14 @@
         
         // Clear cart
         document.getElementById('clearCartBtn').addEventListener('click', function() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             if (cart.length === 0) {
                 showNotification('Your cart is already empty', 'info');
                 return;
             }
             
             if (confirm('Are you sure you want to clear your entire cart?')) {
-                localStorage.removeItem('cart');
+                localStorage.removeItem('cart_' + userId);
                 updateCartDisplay();
                 showNotification('Cart cleared successfully', 'success');
             }
@@ -640,7 +651,7 @@
         
         // Checkout button
         document.getElementById('checkoutBtn').addEventListener('click', function() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart_' + userId)) || [];
             
             if (cart.length === 0) {
                 showNotification('Your cart is empty. Add some products first!', 'error');
@@ -837,6 +848,8 @@
 <script src='js/mobile-navbar.js'></script>
 </body>
 </html>
+
+
 
 
 
