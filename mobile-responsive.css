@@ -1,0 +1,352 @@
+﻿/* MOBILE RESPONSIVE STYLES - Essential for mobile devices */
+
+/* 1. BASE MOBILE SETTINGS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* 2. CONTAINERS & LAYOUT */
+.container, .wrapper, main {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* 3. HEADER & NAVIGATION MOBILE STYLES */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 10px !important;
+        position: relative;
+    }
+    
+    .logo {
+        font-size: 1.5rem !important;
+        margin-right: auto;
+    }
+    
+    /* Mobile hamburger menu */
+    .mobile-menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #333;
+        cursor: pointer;
+        padding: 10px;
+        margin-left: 10px;
+    }
+    
+    nav, .navbar {
+        position: relative;
+    }
+    
+    nav ul, .nav-menu, .nav-links {
+        display: none !important;
+        flex-direction: column !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 0;
+        margin: 0;
+    }
+    
+    nav ul.active, .nav-menu.active, .nav-links.active {
+        display: flex !important;
+    }
+    
+    nav li, .nav-item {
+        width: 100%;
+    }
+    
+    nav a, .nav-link {
+        display: block;
+        padding: 15px 20px !important;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+        width: 100%;
+    }
+    
+    /* Search bar */
+    #productSearch, .search-input {
+        width: 100% !important;
+        margin: 10px 0;
+        padding: 12px 15px !important;
+        font-size: 16px;
+    }
+}
+
+/* 4. PRODUCTS GRID MOBILE STYLES */
+@media screen and (max-width: 768px) {
+    #productsGrid, .products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 10px !important;
+    }
+    
+    .product-card {
+        width: 100% !important;
+        margin: 0 0 15px 0 !important;
+        padding: 12px !important;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .product-image {
+        height: 150px !important;
+    }
+    
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .product-title {
+        font-size: 1rem !important;
+        margin: 8px 0 !important;
+        line-height: 1.3;
+        white-space: normal;
+        overflow: visible;
+    }
+    
+    .product-description {
+        font-size: 0.85rem !important;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .product-price {
+        font-size: 1.2rem !important;
+        font-weight: bold;
+        color: #2ecc71;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .btn-add-to-cart {
+        width: 100% !important;
+        margin-bottom: 8px;
+        padding: 12px !important;
+        font-size: 16px;
+    }
+}
+
+/* 5. EXTRA SMALL PHONES (iPhone 5/SE) */
+@media screen and (max-width: 480px) {
+    #productsGrid, .products-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    .product-card {
+        padding: 10px !important;
+    }
+    
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.2rem !important; }
+    
+    .btn, button {
+        padding: 14px 20px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* 6. TABLET STYLES */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #productsGrid, .products-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .container {
+        max-width: 95% !important;
+    }
+}
+
+/* 7. TOUCH-FRIENDLY ELEMENTS */
+button, .btn, a.btn, input[type="submit"], input[type="button"] {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Prevent blue highlight on tap */
+button:active, .btn:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+/* 8. FORMS ON MOBILE */
+input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS zoom */
+    padding: 12px 15px !important;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* 9. CART PAGE MOBILE STYLES */
+@media screen and (max-width: 768px) {
+    .cart-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 15px !important;
+        margin-bottom: 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+    }
+    
+    .cart-item-image {
+        width: 100px !important;
+        height: 100px !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+    }
+    
+    .cart-item-details {
+        width: 100% !important;
+    }
+    
+    .cart-summary {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        z-index: 1000;
+    }
+}
+
+/* 10. FOOTER MOBILE STYLES */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 30px 15px !important;
+        text-align: center;
+    }
+    
+    .footer-columns {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    .footer-column {
+        width: 100% !important;
+    }
+}
+
+/* 11. UTILITY CLASSES FOR MOBILE */
+.mobile-only {
+    display: none !important;
+}
+
+.mobile-hide {
+    display: block !important;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-only {
+        display: block !important;
+    }
+    
+    .mobile-hide {
+        display: none !important;
+    }
+    
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+/* 12. FONT SIZES FOR READABILITY */
+@media screen and (max-width: 768px) {
+    p, li, span, div {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+    
+    small {
+        font-size: 14px !important;
+    }
+}
+
+/* 13. SCROLLING IMPROVEMENTS */
+@media screen and (max-width: 768px) {
+    * {
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+}
+
+/* 14. PRODUCT FILTERS MOBILE */
+@media screen and (max-width: 768px) {
+    .filters-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100%;
+        background: white;
+        z-index: 2000;
+        transition: left 0.3s;
+        padding: 20px;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        overflow-y: auto;
+    }
+    
+    .filters-sidebar.active {
+        left: 0;
+    }
+    
+    .filter-toggle-btn {
+        display: block !important;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+}
