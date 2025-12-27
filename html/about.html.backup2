@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GML Online Stores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/additional.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-orange">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-basket"></i>
+                <span>GML<span class="logo-highlight">Online Stores</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html" class="nav-link"><i class="fas fa-store"></i> Products</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                <div class="user-menu" id="userMenu">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-palette"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- About Page -->
+    <div class="content-page">
+        <div class="page-header">
+            <h1>About GML Online Stores</h1>
+            <p>Your Trusted Partner for Fresh Groceries Since 2020</p>
+        </div>
+
+        <div class="page-content">
+            <!-- Our Story -->
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Founded in 2020, GML Online Stores began with a simple mission: to make fresh, quality groceries accessible to everyone in Kenya through a convenient online platform. What started as a small startup serving Nairobi has grown into Kenya's leading online supermarket, delivering happiness to thousands of homes nationwide.</p>
+                        
+                        <p>Our journey began when our founder, John Kamau, realized the challenges busy families faced in accessing fresh groceries. With a vision to revolutionize grocery shopping, we built a platform that brings the supermarket to your doorstep.</p>
+                        
+                        <p>Today, we partner with over 200 local farmers and producers to bring you the freshest products while supporting Kenya's agricultural sector. We're proud to have created 500+ jobs and delivered over 1 million orders to satisfied customers across the country.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Mission & Vision -->
+            <div class="about-section">
+                <h2>Our Mission & Vision</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p><strong>Our Mission:</strong> To provide convenient access to fresh, quality groceries while supporting local producers and promoting sustainable practices. We aim to make grocery shopping effortless, affordable, and enjoyable for every Kenyan household.</p>
+                        
+                        <p><strong>Our Vision:</strong> To become East Africa's most trusted online supermarket, known for exceptional quality, reliable service, and community impact. We envision a future where everyone has access to fresh, healthy food regardless of their location or schedule.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Values -->
+            <div class="about-section">
+                <h2>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Quality First</h3>
+                        <p>We never compromise on quality. Every product is carefully selected and inspected to meet our high standards.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Customer Focus</h3>
+                        <p>Our customers are at the heart of everything we do. We listen, adapt, and strive to exceed expectations.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainability</h3>
+                        <p>We promote eco-friendly practices, reduce waste, and support sustainable farming methods.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Community Support</h3>
+                        <p>We believe in giving back and supporting local communities through various initiatives.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We continuously improve our technology and processes to provide better service.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We operate with honesty, transparency, and ethical business practices at all times.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">50,000+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Orders Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Local Partners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Jobs Created</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet Our Team -->
+            <div class="about-section team-section">
+                <h2>Meet Our Leadership Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="../images/WhatsApp Image 2025-12-27 at 13.47.26.jpeg "alt="simon Karanja">
+                        </div>
+                        <div class="member-info">
+                            <h3>Simon Karanja</h3>
+                            <div class="member-role">Founder & CEO</div>
+                            <p class="member-bio">With 15+ years in retail and technology, John leads our vision for revolutionizing grocery shopping in Africa.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w-600" alt="Sarah Mwangi">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sarah Mwangi</h3>
+                            <div class="member-role">Operations Director</div>
+                            <p class="member-bio">Sarah ensures our operations run smoothly, focusing on efficiency and customer satisfaction.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w-600" alt="David Ochieng">
+                        </div>
+                        <div class="member-info">
+                            <h3>David Ochieng</h3>
+                            <div class="member-role">Technology Lead</div>
+                            <p class="member-bio">David leads our tech team in developing innovative solutions for seamless online shopping.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w-600" alt="Grace Akinyi">
+                        </div>
+                        <div class="member-info">
+                            <h3>Grace Akinyi</h3>
+                            <div class="member-role">Customer Experience</div>
+                            <p class="member-bio">Grace and her team ensure every customer interaction is exceptional and memorable.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2>Join Our Growing Community</h2>
+                <p>Experience the convenience of online grocery shopping with Kenya's most trusted supermarket.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-basket"></i> Start Shopping
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                    <a href="register.html" class="btn btn-outline">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GML Online Stores</h3>
+                <p>Your trusted online grocery store. Fresh products delivered fast.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> 0741 128 853</p>
+                <p><i class="fas fa-envelope"></i> info@GML Online Stores.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h3>Payment Methods</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-mpesa"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GML Online Stores. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Theme Color</h3>
+            <div class="theme-colors">
+                <button class="theme-color orange active" data-theme="orange"></button>
+                <button class="theme-color blue" data-theme="blue"></button>
+                <button class="theme-color green" data-theme="green"></button>
+                <button class="theme-color purple" data-theme="purple"></button>
+                <button class="theme-color red" data-theme="red"></button>
+                <button class="theme-color teal" data-theme="teal"></button>
+            </div>
+            <button class="btn btn-close" id="closeThemeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    
+    <script>
+        // Theme functionality
+        document.getElementById('themeToggle')?.addEventListener('click', function() {
+            document.getElementById('themeModal').style.display = 'flex';
+        });
+        
+        document.getElementById('closeThemeModal')?.addEventListener('click', function() {
+            document.getElementById('themeModal').style.display = 'none';
+        });
+        
+        // Theme color selection
+        document.querySelectorAll('.theme-color').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                document.body.className = `theme-${theme}`;
+                localStorage.setItem('theme', theme);
+                
+                // Update active button
+                document.querySelectorAll('.theme-color').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.getElementById('themeModal').style.display = 'none';
+            });
+        });
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'orange';
+        document.body.className = `theme-${savedTheme}`;
+        document.querySelector(`.theme-color.${savedTheme}`)?.classList.add('active');
+    </script>
+<section class="founder-section" id="founder">
+    <div class="container">
+        <div class="section-header">
+            <h2>Meet Our Founder</h2>
+            <p>The visionary behind our success</p>
+        </div>
+        
+        <div class="founder-profile">
+            <div class="founder-image-wrapper">
+                <!-- REPLACE THIS PATH WITH YOUR ACTUAL IMAGE PATH -->
+                <img src="../images/Screenshot 2025-12-27 132201.png " alt="Founder Name" class="founder-photo">
+                <div class="image-caption">Founder & CEO</div>
+            </div>
+            
+            <div class="founder-details">
+                <h3>Amos Mburu</h3>
+                <p class="founder-title">CEO & Founder</p>
+                
+                <blockquote class="founder-quote">
+                    "We don't just build products; we build solutions that change lives."
+                </blockquote>
+                
+                <div class="founder-bio">
+                    <p>Alex founded this company in 2015 with a vision to revolutionize the industry. With over 12 years of experience and a passion for innovation, Alex leads our team with dedication and inspires everyone to achieve excellence.</p>
+                    
+                    <p>Under Alex's leadership, we've grown from a small startup to serving thousands of customers worldwide while maintaining our core values of integrity and quality.</p>
+                </div>
+                
+                <div class="founder-contact">
+                    <a href="mailto:founder@company.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> Contact Founder
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.founder-section {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.founder-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+.founder-profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.founder-image-wrapper {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.founder-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.image-caption {
+    text-align: center;
+    margin-top: 15px;
+    color: #3498db;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.founder-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+.founder-details h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.founder-title {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.founder-quote {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-style: italic;
+    padding: 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.founder-bio {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.founder-bio p {
+    margin-bottom: 15px;
+}
+
+.founder-contact {
+    margin-top: 30px;
+}
+
+.contact-link {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.contact-link i {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .founder-profile {
+        flex-direction: column;
+        padding: 25px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .founder-quote {
+        font-size: 1.1rem;
+    }
+}
+</style>
+
+    <script src="../js/pages/about.js" defer></script>
+</body>
+</html>
+
+
+
+

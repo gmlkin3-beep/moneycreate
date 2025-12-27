@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperMarket Online - Fresh Groceries Delivered</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-orange">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-basket"></i>
+                <span>SuperMarket<span class="logo-highlight">Online</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <i class="fas fa-store"></i> Products</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+                <div class="user-menu">
+                    <a href="login.html" class="auth-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="register.html" class="auth-btn register" id="registerBtn"><i class="fas fa-user-plus"></i> Register</a>
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-palette"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">Fresh Groceries <span class="highlight">Delivered</span> to Your Doorstep</h1>
+            <p class="hero-subtitle animate-slide-up">Shop from the comfort of your home. Quality products, competitive prices, and fast delivery.</p>
+            <div class="hero-buttons">
+                
+                    <i class="fas fa-shopping-cart"></i> Shop Now
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+        </div>
+        <div class="hero-image animate-float">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fresh Vegetables">
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card animate-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <h3>Fast Delivery</h3>
+                <p>Get your groceries delivered within 2 hours in urban areas.</p>
+            </div>
+            <div class="feature-card animate-card delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Secure Payment</h3>
+                <p>Pay safely via M-Pesa, credit card, or cash on delivery.</p>
+            </div>
+            <div class="feature-card animate-card delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3>Best Prices</h3>
+                <p>Competitive prices with daily discounts and offers.</p>
+            </div>
+            <div class="feature-card animate-card delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Our customer service team is always ready to help.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="section-header">
+            <h2 class="section-title">Featured Products</h2>
+            View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="products-grid" id="featuredProducts">
+            <!-- Products will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Theme Selector Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Theme Color</h3>
+            <div class="theme-colors">
+                <button class="theme-color orange active" data-theme="orange"></button>
+                <button class="theme-color blue" data-theme="blue"></button>
+                <button class="theme-color green" data-theme="green"></button>
+                <button class="theme-color purple" data-theme="purple"></button>
+                <button class="theme-color red" data-theme="red"></button>
+                <button class="theme-color teal" data-theme="teal"></button>
+            </div>
+            <button class="btn btn-close" id="closeThemeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SuperMarket Online</h3>
+                <p>Your trusted online grocery store. Fresh products delivered fast.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +254 700 000 000</p>
+                <p><i class="fas fa-envelope"></i> info@supermarketonline.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Payment Methods</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-mpesa"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SuperMarket Online. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <!-- Temporarily disabled auth.js -->
+</body>
+</html>
+
+
+

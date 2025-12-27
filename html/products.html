@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - GML Online Stores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-orange">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-basket"></i>
+                <span>GML<span class="logo-highlight">Online Stores</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html" class="nav-link active"><i class="fas fa-store"></i> Products</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+                <div class="user-menu" id="userMenu">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-palette"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Products Page -->
+    <div class="products-page">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filters-header">
+                <h3><i class="fas fa-filter"></i> Filters</h3>
+                <button class="clear-filters" id="clearFilters">Clear All</button>
+            </div>
+            
+            <!-- Search -->
+            <div class="filter-section">
+                <h4>Search</h4>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="productSearch" placeholder="Search products...">
+                </div>
+            </div>
+            
+            <!-- Categories -->
+            <div class="filter-section">
+                <h4>Categories</h4>
+                <div class="category-list">
+                    <label class="category-item">
+                        <input type="checkbox" name="category" value="fruits">
+                        <span class="checkmark"></span>
+                        <span class="category-name">Fruits</span>
+                        <span class="category-count">(24)</span>
+                    </label>
+                    <label class="category-item">
+                        <input type="checkbox" name="category" value="vegetables">
+                        <span class="checkmark"></span>
+                        <span class="category-name">Vegetables</span>
+                        <span class="category-count">(18)</span>
+                    </label>
+                    <label class="category-item">
+                        <input type="checkbox" name="category" value="dairy">
+                        <span class="checkmark"></span>
+                        <span class="category-name">Dairy</span>
+                        <span class="category-count">(12)</span>
+                    </label>
+                    <label class="category-item">
+                        <input type="checkbox" name="category" value="meat">
+                        <span class="checkmark"></span>
+                        <span class="category-name">Meat & Poultry</span>
+                        <span class="category-count">(8)</span>
+                    </label>
+                    <label class="category-item">
+                        <input type="checkbox" name="category" value="bakery">
+                        <span class="checkmark"></span>
+                        <span class="category-name">Bakery</span>
+                        <span class="category-count">(15)</span>
+                    </label>
+                    <label class="category-item">
+                        <input type="checkbox" name="category" value="beverages">
+                        <span class="checkmark"></span>
+                        <span class="category-name">Beverages</span>
+                        <span class="category-count">(20)</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Price Range -->
+            <div class="filter-section">
+                <h4>Price Range</h4>
+                <div class="price-range">
+                    <div class="price-inputs">
+                        <input type="number" id="minPrice" placeholder="Min" value="0">
+                        <span>to</span>
+                        <input type="number" id="maxPrice" placeholder="Max" value="1000">
+                    </div>
+                    <div class="price-slider">
+                        <input type="range" id="priceSlider" min="0" max="1000" value="1000">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sort By -->
+            <div class="filter-section">
+                <h4>Sort By</h4>
+                <select id="sortBy" class="sort-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-asc">Name: A to Z</option>
+                    <option value="name-desc">Name: Z to A</option>
+                    <option value="newest">Newest First</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+            
+            <!-- Apply Filters -->
+            <button class="btn btn-primary apply-filters" id="applyFilters">
+                <i class="fas fa-check"></i> Apply Filters
+            </button>
+        </aside>
+        
+        <!-- Main Products Area -->
+        <main class="products-main">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Our Products</h1>
+                <p>Fresh groceries delivered to your doorstep</p>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="products-grid-container">
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+                
+                <!-- Loading Indicator -->
+                <div class="loading-products" id="loadingProducts">
+                    <div class="loading-spinner"></div>
+                    <p>Loading products...</p>
+                </div>
+                
+                <!-- No Products Found -->
+                <div class="no-products" id="noProducts" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your search or filters</p>
+                    <button class="btn btn-secondary" id="resetSearch">Reset Search</button>
+                </div>
+                
+                <!-- Load More -->
+                <div class="load-more" id="loadMore">
+                    <button class="btn btn-outline" id="loadMoreBtn">
+                        <i class="fas fa-redo"></i> Load More Products
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="quick-view-content">
+            <button class="close-modal" id="closeQuickView">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="quick-view-body" id="quickViewBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GML Online Stores</h3>
+                <p>Your trusted online grocery store. Fresh products delivered fast.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> 0741 128 853</p>
+                <p><i class="fas fa-envelope"></i> info@GML Online Stores.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Payment Methods</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-mpesa"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GML Online Stores. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Theme Color</h3>
+            <div class="theme-colors">
+                <button class="theme-color orange active" data-theme="orange"></button>
+                <button class="theme-color blue" data-theme="blue"></button>
+                <button class="theme-color green" data-theme="green"></button>
+                <button class="theme-color purple" data-theme="purple"></button>
+                <button class="theme-color red" data-theme="red"></button>
+                <button class="theme-color teal" data-theme="teal"></button>
+            </div>
+            <button class="btn btn-close" id="closeThemeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    
+    
+    
+
+    <script src="../js/pages/products.js" defer></script>
+</body>
+</html>
+
+

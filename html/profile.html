@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - GML Online Stores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-orange">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-basket"></i>
+                <span>GML<span class="logo-highlight">Online Stores</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html" class="nav-link"><i class="fas fa-store"></i> Products</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <div class="user-menu" id="userMenu">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-palette"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Profile Page -->
+    <div class="profile-page">
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-circle">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="avatar-info">
+                        <h1 id="profileName">Loading...</h1>
+                        <p id="profileEmail">Loading...</p>
+                        <p class="member-since">Member since <span id="memberSince">2024</span></p>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="totalOrders">0</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="totalSpent">KES 0</div>
+                        <div class="stat-label">Total Spent</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="pointsBalance">0</div>
+                        <div class="stat-label">Reward Points</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Sidebar -->
+                <aside class="profile-sidebar">
+                    <nav class="profile-nav">
+                        <a href="#personal" class="nav-item active" data-tab="personal">
+                            <i class="fas fa-user"></i> Personal Information
+                        </a>
+                        <a href="#orders" class="nav-item" data-tab="orders">
+                            <i class="fas fa-shopping-bag"></i> My Orders
+                        </a>
+                        <a href="#addresses" class="nav-item" data-tab="addresses">
+                            <i class="fas fa-map-marker-alt"></i> Addresses
+                        </a>
+                        <a href="#payment" class="nav-item" data-tab="payment">
+                            <i class="fas fa-credit-card"></i> Payment Methods
+                        </a>
+                        <a href="#preferences" class="nav-item" data-tab="preferences">
+                            <i class="fas fa-cog"></i> Preferences
+                        </a>
+                        <a href="#security" class="nav-item" data-tab="security">
+                            <i class="fas fa-shield-alt"></i> Security
+                        </a>
+                        <a href="#notifications" class="nav-item" data-tab="notifications">
+                            <i class="fas fa-bell"></i> Notifications
+                        </a>
+                    </nav>
+                    
+                    <div class="sidebar-actions">
+                        <button class="btn btn-outline" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </aside>
+                
+                <!-- Main Content -->
+                <main class="profile-main">
+                    <!-- Personal Information Tab -->
+                    <div class="tab-content active" id="personalTab">
+                        <div class="tab-header">
+                            <h2>Personal Information</h2>
+                            <button class="btn btn-primary" id="editProfileBtn">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </button>
+                        </div>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Full Name</label>
+                                <p id="userFullName">Loading...</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Email Address</label>
+                                <p id="userEmail">Loading...</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Phone Number</label>
+                                <p id="userPhone">Loading...</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Account Type</label>
+                                <p id="userRole">Loading...</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Date of Birth</label>
+                                <p id="userDOB">Not set</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Gender</label>
+                                <p id="userGender">Not specified</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Edit Form (Hidden by default) -->
+                        <form id="editProfileForm" class="edit-form" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="editFirstName">First Name</label>
+                                    <input type="text" id="editFirstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editLastName">Last Name</label>
+                                    <input type="text" id="editLastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPhone">Phone Number</label>
+                                <input type="tel" id="editPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDOB">Date of Birth</label>
+                                <input type="date" id="editDOB">
+                            </div>
+                            <div class="form-group">
+                                <label for="editGender">Gender</label>
+                                <select id="editGender">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Orders Tab -->
+                    <div class="tab-content" id="ordersTab">
+                        <div class="tab-header">
+                            <h2>My Orders</h2>
+                            <div class="order-filter">
+                                <select id="orderFilter">
+                                    <option value="all">All Orders</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="orders-list" id="ordersList">
+                            <!-- Orders will be loaded here -->
+                            <div class="loading-orders">
+                                <div class="loading-spinner"></div>
+                                <p>Loading your orders...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Addresses Tab -->
+                    <div class="tab-content" id="addressesTab">
+                        <div class="tab-header">
+                            <h2>My Addresses</h2>
+                            <button class="btn btn-primary" id="addAddressBtn">
+                                <i class="fas fa-plus"></i> Add New Address
+                            </button>
+                        </div>
+                        
+                        <div class="addresses-grid" id="addressesList">
+                            <!-- Addresses will be loaded here -->
+                            <div class="no-addresses">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>No addresses saved</h3>
+                                <p>Add your first delivery address</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Preferences Tab -->
+                    <div class="tab-content" id="preferencesTab">
+                        <div class="tab-header">
+                            <h2>Preferences</h2>
+                        </div>
+                        
+                        <div class="preferences-form">
+                            <div class="preference-section">
+                                <h3>Theme Settings</h3>
+                                <div class="theme-preferences">
+                                    <label>Select Theme Color</label>
+                                    <div class="theme-options">
+                                        <button class="theme-option orange active" data-theme="orange">
+                                            <div class="theme-preview orange"></div>
+                                            <span>Orange</span>
+                                        </button>
+                                        <button class="theme-option blue" data-theme="blue">
+                                            <div class="theme-preview blue"></div>
+                                            <span>Blue</span>
+                                        </button>
+                                        <button class="theme-option green" data-theme="green">
+                                            <div class="theme-preview green"></div>
+                                            <span>Green</span>
+                                        </button>
+                                        <button class="theme-option purple" data-theme="purple">
+                                            <div class="theme-preview purple"></div>
+                                            <span>Purple</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="preference-section">
+                                <h3>Communication Preferences</h3>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="emailPromotions" checked>
+                                        <span class="checkmark"></span>
+                                        <span class="checkbox-label">Email me about promotions and offers</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="smsNotifications" checked>
+                                        <span class="checkmark"></span>
+                                        <span class="checkbox-label">Send me SMS order updates</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="productRecommendations">
+                                        <span class="checkmark"></span>
+                                        <span class="checkbox-label">Receive product recommendations</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="preference-section">
+                                <h3>Language</h3>
+                                <select id="languagePref">
+                                    <option value="en">English</option>
+                                    <option value="sw">Swahili</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn btn-primary" id="savePreferencesBtn">
+                                <i class="fas fa-save"></i> Save Preferences
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Address Modal -->
+    <div class="modal" id="addAddressModal">
+        <div class="modal-content">
+            <h3>Add New Address</h3>
+            <form id="addressForm">
+                <div class="form-group">
+                    <label for="addressLabel">Address Label *</label>
+                    <input type="text" id="addressLabel" placeholder="e.g., Home, Office" required>
+                </div>
+                <div class="form-group">
+                    <label for="addressLine1">Address Line 1 *</label>
+                    <input type="text" id="addressLine1" placeholder="Street address" required>
+                </div>
+                <div class="form-group">
+                    <label for="addressLine2">Address Line 2</label>
+                    <input type="text" id="addressLine2" placeholder="Apartment, suite, unit">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="addressCity">City *</label>
+                        <input type="text" id="addressCity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressPostalCode">Postal Code</label>
+                        <input type="text" id="addressPostalCode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="addressCountry">Country</label>
+                    <select id="addressCountry">
+                        <option value="KE">Kenya</option>
+                        <option value="UG">Uganda</option>
+                        <option value="TZ">Tanzania</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="addressPhone">Phone Number for this address *</label>
+                    <input type="tel" id="addressPhone" required>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="setDefaultAddress">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-label">Set as default delivery address</span>
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelAddressBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Address</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Theme Color</h3>
+            <div class="theme-colors">
+                <button class="theme-color orange active" data-theme="orange"></button>
+                <button class="theme-color blue" data-theme="blue"></button>
+                <button class="theme-color green" data-theme="green"></button>
+                <button class="theme-color purple" data-theme="purple"></button>
+                <button class="theme-color red" data-theme="red"></button>
+                <button class="theme-color teal" data-theme="teal"></button>
+            </div>
+            <button class="btn btn-close" id="closeThemeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Load user profile
+            loadUserProfile();
+            
+            // Tab switching
+            setupProfileTabs();
+            
+            // Edit profile
+            setupProfileEdit();
+            
+            // Address management
+            setupAddressManagement();
+            
+            // Preferences
+            setupPreferences();
+            
+            // Logout
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = 'index.html';
+            });
+        });
+        
+        function loadUserProfile() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                document.getElementById('profileName').textContent = user.username || 'User';
+                document.getElementById('profileEmail').textContent = user.email || '';
+                document.getElementById('userFullName').textContent = user.username || '';
+                document.getElementById('userEmail').textContent = user.email || '';
+                document.getElementById('userPhone').textContent = user.phoneNumber || '';
+                document.getElementById('userRole').textContent = user.role === 'admin' ? 'Administrator' : 'Customer';
+            }
+            
+            // Load orders
+            loadUserOrders();
+        }
+        
+        function loadUserOrders() {
+            const token = localStorage.getItem('token');
+            if (!token) return;
+            
+            fetch('http://localhost:5000/api/orders/user/1', { // Replace with actual user ID
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(orders => {
+                updateOrdersDisplay(orders);
+            })
+            .catch(error => {
+                console.error('Error loading orders:', error);
+            });
+        }
+        
+        function updateOrdersDisplay(orders) {
+            const ordersList = document.getElementById('ordersList');
+            if (!orders || orders.length === 0) {
+                ordersList.innerHTML = `
+                    <div class="no-orders">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>No orders yet</h3>
+                        <p>Your order history will appear here</p>
+                        <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            ordersList.innerHTML = orders.map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #${order.id}</div>
+                        <div class="order-date">${new Date(order.createdAt).toLocaleDateString()}</div>
+                        <div class="order-status status-${order.status}">${order.status}</div>
+                    </div>
+                    <div class="order-body">
+                        <div class="order-items-preview">
+                            ${order.OrderItems && order.OrderItems.slice(0, 2).map(item => `
+                                <div class="order-item-preview">
+                                    <span class="item-name">${item.Product?.name || 'Product'}</span>
+                                    <span class="item-quantity">x${item.quantity}</span>
+                                </div>
+                            `).join('')}
+                            ${order.OrderItems && order.OrderItems.length > 2 ? 
+                                `<div class="more-items">+${order.OrderItems.length - 2} more items</div>` : ''
+                            }
+                        </div>
+                        <div class="order-total">KES ${order.totalAmount.toFixed(2)}</div>
+                    </div>
+                    <div class="order-actions">
+                        <a href="order-details.html?id=${order.id}" class="btn btn-outline btn-sm">
+                            View Details
+                        </a>
+                        ${order.status === 'pending' ? `
+                            <button class="btn btn-danger btn-sm" onclick="cancelOrder(${order.id})">
+                                Cancel Order
+                            </button>
+                        ` : ''}
+                        ${order.status === 'delivered' ? `
+                            <button class="btn btn-primary btn-sm" onclick="reorder(${order.id})">
+                                Reorder
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function setupProfileTabs() {
+            const navItems = document.querySelectorAll('.profile-nav .nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    
+                    // Add active class to clicked
+                    this.classList.add('active');
+                    const tabId = this.dataset.tab + 'Tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+        
+        function setupProfileEdit() {
+            const editBtn = document.getElementById('editProfileBtn');
+            const cancelBtn = document.getElementById('cancelEditBtn');
+            const editForm = document.getElementById('editProfileForm');
+            const infoGrid = editForm.previousElementSibling;
+            
+            editBtn.addEventListener('click', function() {
+                infoGrid.style.display = 'none';
+                editForm.style.display = 'block';
+                editBtn.style.display = 'none';
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                infoGrid.style.display = 'block';
+                editForm.style.display = 'none';
+                editBtn.style.display = 'block';
+            });
+            
+            editForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Handle profile update here
+                alert('Profile updated!');
+                infoGrid.style.display = 'block';
+                editForm.style.display = 'none';
+                editBtn.style.display = 'block';
+            });
+        }
+        
+        function setupAddressManagement() {
+            const addBtn = document.getElementById('addAddressBtn');
+            const modal = document.getElementById('addAddressModal');
+            const cancelBtn = document.getElementById('cancelAddressBtn');
+            const form = document.getElementById('addressForm');
+            
+            addBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Handle address addition here
+                alert('Address added!');
+                modal.style.display = 'none';
+            });
+        }
+        
+        function setupPreferences() {
+            const themeOptions = document.querySelectorAll('.theme-option');
+            const saveBtn = document.getElementById('savePreferencesBtn');
+            
+            themeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    themeOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const theme = this.dataset.theme;
+                    changeTheme(theme);
+                });
+            });
+            
+            saveBtn.addEventListener('click', function() {
+                // Save preferences to backend
+                const preferences = {
+                    theme: document.querySelector('.theme-option.active').dataset.theme,
+                    emailPromotions: document.getElementById('emailPromotions').checked,
+                    smsNotifications: document.getElementById('smsNotifications').checked,
+                    productRecommendations: document.getElementById('productRecommendations').checked,
+                    language: document.getElementById('languagePref').value
+                };
+                
+                // Save to localStorage
+                localStorage.setItem('preferences', JSON.stringify(preferences));
+                
+                // Show success message
+                alert('Preferences saved!');
+            });
+        }
+        
+        function changeTheme(theme) {
+            document.body.className = `theme-${theme}`;
+            localStorage.setItem('theme', theme);
+            
+            // Update user preference in database if logged in
+            const token = localStorage.getItem('token');
+            if (token) {
+                fetch('http://localhost:5000/api/auth/theme', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ theme })
+                });
+            }
+        }
+    </script>
+
+    <script src="../js/pages/profile.js" defer></script>
+</body>
+</html>
+

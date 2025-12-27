@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - GML Online Stores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-orange">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-basket"></i>
+                <span>GML<span class="logo-highlight">Online Stores</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html" class="nav-link"><i class="fas fa-store"></i> Products</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <div class="user-menu" id="userMenu">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Checkout Page -->
+    <div class="checkout-page">
+        <div class="checkout-container">
+            <!-- Checkout Header -->
+            <div class="checkout-header">
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Cart</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step active">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Information</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Payment</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Checkout Content -->
+            <div class="checkout-content">
+                <!-- Left Column: Forms -->
+                <div class="checkout-forms">
+                    <!-- Delivery Information -->
+                    <form id="deliveryForm" class="checkout-form">
+                        <div class="form-section">
+                            <h3><i class="fas fa-truck"></i> Delivery Information</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number *</label>
+                                <input type="tel" id="phoneNumber" placeholder="0741 128 853" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Delivery Address *</label>
+                                <textarea id="address" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="postalCode">Postal Code</label>
+                                    <input type="text" id="postalCode">
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select id="country">
+                                        <option value="KE">Kenya</option>
+                                        <option value="UG">Uganda</option>
+                                        <option value="TZ">Tanzania</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="deliveryInstructions">Delivery Instructions (Optional)</label>
+                                <textarea id="deliveryInstructions" rows="2" placeholder="e.g., Leave at the gate, Call before delivery..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Delivery Time -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-clock"></i> Delivery Time</h3>
+                            <div class="delivery-time-options">
+                                <label class="time-option">
+                                    <input type="radio" name="deliveryTime" value="asap" checked>
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <span class="option-name">As soon as possible</span>
+                                        <span class="option-time">Within 2 hours</span>
+                                    </div>
+                                </label>
+                                <label class="time-option">
+                                    <input type="radio" name="deliveryTime" value="morning">
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <span class="option-name">Morning (8 AM - 12 PM)</span>
+                                        <span class="option-time">Tomorrow</span>
+                                    </div>
+                                </label>
+                                <label class="time-option">
+                                    <input type="radio" name="deliveryTime" value="afternoon">
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <span class="option-name">Afternoon (12 PM - 5 PM)</span>
+                                        <span class="option-time">Tomorrow</span>
+                                    </div>
+                                </label>
+                                <label class="time-option">
+                                    <input type="radio" name="deliveryTime" value="evening">
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <span class="option-name">Evening (5 PM - 9 PM)</span>
+                                        <span class="option-time">Tomorrow</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Payment Method -->
+                    <form id="paymentForm" class="checkout-form">
+                        <div class="form-section">
+                            <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="mpesa" checked>
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <div class="payment-icon">
+                                            <i class="fab fa-mpesa"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <span class="option-name">M-Pesa</span>
+                                            <span class="option-desc">Pay via M-Pesa</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="card">
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <span class="option-name">Credit/Debit Card</span>
+                                            <span class="option-desc">Visa, MasterCard</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="cash">
+                                    <span class="checkmark"></span>
+                                    <div class="option-details">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <span class="option-name">Cash on Delivery</span>
+                                            <span class="option-desc">Pay when you receive</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="checkout-navigation">
+                        <a href="cart.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Cart
+                        </a>
+                        <button class="btn btn-primary" id="continueToPaymentBtn">
+                            Continue to Payment <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Order Summary -->
+                <div class="checkout-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <!-- Order Items -->
+                        <div class="order-items" id="checkoutItems">
+                            <!-- Items will be loaded here -->
+                        </div>
+                        
+                        <!-- Order Totals -->
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span id="checkoutSubtotal">KES 0.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Delivery</span>
+                                <span id="checkoutDelivery">KES 150.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Tax</span>
+                                <span id="checkoutTax">KES 0.00</span>
+                            </div>
+                            <div class="total-row discount">
+                                <span>Discount</span>
+                                <span id="checkoutDiscount">- KES 0.00</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span>Total</span>
+                                <span id="checkoutTotal">KES 0.00</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Help Section -->
+                        <div class="help-section">
+                            <h4><i class="fas fa-question-circle"></i> Need Help?</h4>
+                            <p>Call us: <strong>0741 128 853</strong></p>
+                            <p>Email: <strong>support@GML Online Stores.com</strong></p>
+                        </div>
+                        
+                        <!-- Secure Payment -->
+                        <div class="secure-payment">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure payment Â· 256-bit SSL encryption</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- M-Pesa Payment Modal -->
+    <div class="modal" id="mpesaModal">
+        <div class="modal-content">
+            <div class="mpesa-header">
+                <i class="fab fa-mpesa"></i>
+                <h3>Pay with M-Pesa</h3>
+            </div>
+            <div class="mpesa-body">
+                <div class="mpesa-instructions">
+                    <p>Complete payment by following these steps:</p>
+                    <ol>
+                        <li>Go to <strong>M-PESA</strong> on your phone</li>
+                        <li>Select <strong>Lipa Na M-PESA</strong></li>
+                        <li>Select <strong>Pay Bill</strong></li>
+                        <li>Enter Business No: <strong>123456</strong></li>
+                        <li>Enter Account No: <strong id="mpesaAccountNo">123456789</strong></li>
+                        <li>Enter Amount: <strong id="mpesaAmount">KES 0.00</strong></li>
+                        <li>Enter your M-PESA PIN and send</li>
+                    </ol>
+                </div>
+                
+                <div class="mpesa-input">
+                    <label for="mpesaCode">Enter M-PESA Confirmation Code</label>
+                    <input type="text" id="mpesaCode" placeholder="e.g., RB12A34B56C">
+                    <div class="error-message" id="mpesaError"></div>
+                </div>
+                
+                <div class="mpesa-timer">
+                    <p>Time remaining: <span id="mpesaTimer">05:00</span></p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelMpesa">Cancel</button>
+                <button class="btn btn-primary" id="confirmMpesa">Confirm Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Processing Modal -->
+    <div class="modal" id="processingModal">
+        <div class="modal-content">
+            <div class="processing-animation">
+                <div class="spinner"></div>
+                <h3>Processing Payment</h3>
+                <p>Please wait while we process your payment...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-animation">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3>Order Confirmed!</h3>
+                <p>Your order has been placed successfully.</p>
+                <p class="order-id">Order ID: <strong id="orderId">#123456</strong></p>
+                <div class="success-actions">
+                    <a href="orders.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i> View Orders
+                    </a>
+                    <a href="index.html" class="btn btn-outline">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html?redirect=checkout';
+            }
+            
+            // Load cart items
+            updateCheckoutSummary();
+            
+            // Fill user information if available
+            fillUserInfo();
+        });
+        
+        function fillUserInfo() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                document.getElementById('email').value = user.email || '';
+                document.getElementById('phoneNumber').value = user.phoneNumber || '';
+            }
+        }
+        
+        function updateCheckoutSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemsContainer = document.getElementById('checkoutItems');
+            const subtotalElement = document.getElementById('checkoutSubtotal');
+            const totalElement = document.getElementById('checkoutTotal');
+            
+            if (cart.length === 0) {
+                window.location.href = 'cart.html';
+                return;
+            }
+            
+            // Calculate totals
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+            
+            const delivery = 150;
+            const tax = subtotal * 0.16;
+            const total = subtotal + delivery + tax;
+            
+            // Update UI
+            subtotalElement.textContent = `KES ${subtotal.toFixed(2)}`;
+            document.getElementById('checkoutDelivery').textContent = `KES ${delivery.toFixed(2)}`;
+            document.getElementById('checkoutTax').textContent = `KES ${tax.toFixed(2)}`;
+            totalElement.textContent = `KES ${total.toFixed(2)}`;
+            
+            // Update M-Pesa amount
+            document.getElementById('mpesaAmount').textContent = `KES ${total.toFixed(2)}`;
+            
+            // Generate random order ID for M-Pesa
+            document.getElementById('mpesaAccountNo').textContent = Math.floor(Math.random() * 1000000000);
+            
+            // Display items
+            itemsContainer.innerHTML = cart.map(item => `
+                <div class="order-item">
+                    <div class="item-info">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-quantity">x${item.quantity}</span>
+                    </div>
+                    <span class="item-price">KES ${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `).join('');
+        }
+    </script>
+
+    <script src="../js/pages/checkout.js" defer></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GML Online Stores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/additional.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-orange">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-basket"></i>
+                <span>GML<span class="logo-highlight">Online Stores</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html" class="nav-link"><i class="fas fa-store"></i> Products</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a>
+                <div class="user-menu" id="userMenu">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-palette"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contact Page -->
+    <div class="content-page">
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p>We're here to help you with any questions or concerns</p>
+        </div>
+
+        <div class="page-content">
+            <!-- Contact Info & Form -->
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Address</h4>
+                                <p>GML Online Stores Headquarters<br>
+                                Moi Avenue, Nairobi CBD<br>
+                                Nairobi, Kenya</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Numbers</h4>
+                                <p>Customer Service: 0741 128 853<br>
+                                Support Hotline: 0741 128 853<br>
+                                Fax: 0741 128 853</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Addresses</h4>
+                                <p>General Inquiries: info@GML Online Stores.com<br>
+                                Support: support@GML Online Stores.com<br>
+                                Careers: careers@GML Online Stores.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 10:00 PM<br>
+                                Saturday: 9:00 AM - 8:00 PM<br>
+                                Sunday: 10:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links-section">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        <script>
+                            // Pre-fill email with logged-in user's email
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const user = JSON.parse(localStorage.getItem('user'));
+                                const emailInput = document.getElementById('email');
+                                
+                                if (user && user.email && emailInput) {
+                                    emailInput.value = user.email;
+                                }
+                            });
+                        </script>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="0741 128 853">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="order">Order Issue</option>
+                                <option value="delivery">Delivery Problem</option>
+                                <option value="product">Product Question</option>
+                                <option value="account">Account Help</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" required placeholder="Please describe your inquiry in detail..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Store Locations -->
+            <div class="store-locations">
+                <h2>Our Store Locations</h2>
+                
+                <div class="locations-grid">
+                    <!-- Nairobi Store -->
+                    <div class="location-card">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" alt="Nairobi Store">
+                        </div>
+                        <div class="location-info">
+                            <h3>Nairobi CBD Store</h3>
+                            <div class="location-details">
+                                <p><i class="fas fa-map-marker-alt"></i> Moi Avenue, Nairobi CBD</p>
+                                <p><i class="fas fa-phone"></i> +254 700 111 111</p>
+                                <p><i class="fas fa-envelope"></i> nairobi@GML Online Stores.com</p>
+                            </div>
+                            <div class="location-hours">
+                                <h4>Opening Hours:</h4>
+                                <ul>
+                                    <li><span>Mon - Fri:</span> <span>8:00 AM - 10:00 PM</span></li>
+                                    <li><span>Saturday:</span> <span>9:00 AM - 9:00 PM</span></li>
+                                    <li><span>Sunday:</span> <span>10:00 AM - 8:00 PM</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mombasa Store -->
+                    <div class="location-card">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" alt="Mombasa Store">
+                        </div>
+                        <div class="location-info">
+                            <h3>Mombasa Branch</h3>
+                            <div class="location-details">
+                                <p><i class="fas fa-map-marker-alt"></i> Moi Avenue, Mombasa</p>
+                                <p><i class="fas fa-phone"></i> +254 700 222 222</p>
+                                <p><i class="fas fa-envelope"></i> mombasa@GML Online Stores.com</p>
+                            </div>
+                            <div class="location-hours">
+                                <h4>Opening Hours:</h4>
+                                <ul>
+                                    <li><span>Mon - Fri:</span> <span>8:00 AM - 9:00 PM</span></li>
+                                    <li><span>Saturday:</span> <span>9:00 AM - 8:00 PM</span></li>
+                                    <li><span>Sunday:</span> <span>10:00 AM - 6:00 PM</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kisumu Store -->
+                    <div class="location-card">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" alt="Kisumu Store">
+                        </div>
+                        <div class="location-info">
+                            <h3>Kisumu Branch</h3>
+                            <div class="location-details">
+                                <p><i class="fas fa-map-marker-alt"></i> Oginga Odinga Road, Kisumu</p>
+                                <p><i class="fas fa-phone"></i> +254 700 333 333</p>
+                                <p><i class="fas fa-envelope"></i> kisumu@GML Online Stores.com</p>
+                            </div>
+                            <div class="location-hours">
+                                <h4>Opening Hours:</h4>
+                                <ul>
+                                    <li><span>Mon - Fri:</span> <span>8:00 AM - 9:00 PM</span></li>
+                                    <li><span>Saturday:</span> <span>9:00 AM - 7:00 PM</span></li>
+                                    <li><span>Sunday:</span> <span>10:00 AM - 6:00 PM</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2>Need Immediate Assistance?</h2>
+                <p>Our customer support team is available 24/7 to help you with any urgent matters.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+254700000000" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="mailto:support@GML Online Stores.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Email Support
+                    </a>
+                    <a href="products.html" class="btn btn-outline">
+                        <i class="fas fa-shopping-basket"></i> Start Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GML Online Stores</h3>
+                <p>Your trusted online grocery store. Fresh products delivered fast.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> 0741 128 853</p>
+                <p><i class="fas fa-envelope"></i> info@GML Online Stores.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h3>Payment Methods</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-mpesa"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GML Online Stores. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Theme Color</h3>
+            <div class="theme-colors">
+                <button class="theme-color orange active" data-theme="orange"></button>
+                <button class="theme-color blue" data-theme="blue"></button>
+                <button class="theme-color green" data-theme="green"></button>
+                <button class="theme-color purple" data-theme="purple"></button>
+                <button class="theme-color red" data-theme="red"></button>
+                <button class="theme-color teal" data-theme="teal"></button>
+            </div>
+            <button class="btn btn-close" id="closeThemeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    
+    <script>
+        // Contact form handling
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        userEmail: JSON.parse(localStorage.getItem('user'))?.email || 'Not logged in'
+    };
+    
+    // Create mailto link with user's email as sender and allover4131@gmail.com as recipient
+    const subject = encodeURIComponent(`GML Online Stores Contact: ${formData.subject}`);
+    const body = encodeURIComponent(
+        `Name: ${formData.firstName} ${formData.lastName}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `User Account Email: ${formData.userEmail}\n\n` +
+        `Message:\n${formData.message}\n\n` +
+        `---\nThis message was sent from GML Online Stores website contact form.`
+    );
+    
+    // Open user's email client
+    window.location.href = `mailto:allover4131@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show success message
+    setTimeout(() => {
+        alert('Thank you for your message! Please send the email that opened in your email client.');
+        this.reset();
+        
+        // Restore user's email if they were logged in
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user && user.email) {
+            document.getElementById('email').value = user.email;
+        }
+    }, 1000);
+});
+        });
+        
+        // Theme functionality
+        document.getElementById('themeToggle')?.addEventListener('click', function() {
+            document.getElementById('themeModal').style.display = 'flex';
+        });
+        
+        document.getElementById('closeThemeModal')?.addEventListener('click', function() {
+            document.getElementById('themeModal').style.display = 'none';
+        });
+        
+        // Theme color selection
+        document.querySelectorAll('.theme-color').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                document.body.className = `theme-${theme}`;
+                localStorage.setItem('theme', theme);
+                
+                // Update active button
+                document.querySelectorAll('.theme-color').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.getElementById('themeModal').style.display = 'none';
+            });
+        });
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'orange';
+        document.body.className = `theme-${savedTheme}`;
+        document.querySelector(`.theme-color.${savedTheme}`)?.classList.add('active');
+    </script>
+
+    <script src="../js/pages/contact.js" defer></script>
+</body>
+</html>
+
+
+
+
