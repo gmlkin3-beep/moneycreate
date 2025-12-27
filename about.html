@@ -1,13 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - GML Online Stores</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/additional.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -154,7 +159,7 @@
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="member-image">
-                            <img src="../images/WhatsApp Image 2025-12-27 at 13.47.26.jpeg "alt="simon Karanja">
+                            <img src="images/WhatsApp Image 2025-12-27 at 13.47.26.jpeg "alt="simon Karanja">
                         </div>
                         <div class="member-info">
                             <h3>Simon Karanja</h3>
@@ -296,36 +301,7 @@
 
     <!-- Scripts -->
     
-    <script>
-        // Theme functionality
-        document.getElementById('themeToggle')?.addEventListener('click', function() {
-            document.getElementById('themeModal').style.display = 'flex';
-        });
-        
-        document.getElementById('closeThemeModal')?.addEventListener('click', function() {
-            document.getElementById('themeModal').style.display = 'none';
-        });
-        
-        // Theme color selection
-        document.querySelectorAll('.theme-color').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const theme = this.dataset.theme;
-                document.body.className = `theme-${theme}`;
-                localStorage.setItem('theme', theme);
-                
-                // Update active button
-                document.querySelectorAll('.theme-color').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                document.getElementById('themeModal').style.display = 'none';
-            });
-        });
-        
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'orange';
-        document.body.className = `theme-${savedTheme}`;
-        document.querySelector(`.theme-color.${savedTheme}`)?.classList.add('active');
-    </script>
+    
 <section class="founder-section" id="founder">
     <div class="container">
         <div class="section-header">
@@ -336,7 +312,7 @@
         <div class="founder-profile">
             <div class="founder-image-wrapper">
                 <!-- REPLACE THIS PATH WITH YOUR ACTUAL IMAGE PATH -->
-                <img src="../images/Screenshot 2025-12-27 132201.png " alt="Founder Name" class="founder-photo">
+                <img src="images/Screenshot 2025-12-27 132201.png " alt="Founder Name" class="founder-photo">
                 <div class="image-caption">Founder & CEO</div>
             </div>
             
@@ -506,9 +482,13 @@
 }
 </style>
 
-    <script src="../js/pages/about.js" defer></script>
-</body>
+    
+    <script src="js/pages/about.js" defer></script>
+    </body>
 </html>
+
+
+
 
 
 
